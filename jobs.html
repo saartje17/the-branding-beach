@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="./styles/styles.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Branding Beach</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <!-- button van het hamburger menu -->
+            <div>
+                <button><img class="hamburgermenu" src="./images/hamburgermenu.svg" alt="hamburgermenu"></button>
+            </div>
+
+            <!-- uitgeklapt hamburgermenu, home & jobs -->
+            <ul>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./jobs.html">Jobs</a></li>
+            </ul>
+            
+            <!-- taalkeuze -->
+            <div> 
+                <a aria-label="Nederlands" href="#">NL /</a>
+                <a aria-label="English" lang="en" href="#"> ENG /</a>
+                <a aria-label="Deutsch" lang="de" href="#">DE</a>
+            </div>
+        </nav>
+        
+        <!-- logo, lijd naar de andere pagina -->
+        <h1><a href="./index.html"><img src="./images/branding.svg" alt="logo branding beach"></a></h1>  
+
+    </header>
+
+    <main>
+
+        <!-- afbeeldingen (staan in een grid) -->
+        <div>
+            <img src="./images/groep.png" alt="een groeps foto van collega's die bij de branding werken">
+            <img src="./images/strand.png" alt="een zonnige stranddag bij de branding">
+            <img src="./images/knuf.png" alt="collega's die knuffelen in de keuken">
+            <img src="./images/coctail.png" alt="weknemer die coctails aan het shaken is">
+            <img src="./images/boxen.png" alt="collega's die gaan de sport boxen op het strand uitoefenen">
+            <img src="./images/zonsondergang.png" alt="zonsondergang bij de branding">
+        </div>
+
+        <!-- content -->
+       <h2>WERKEN BIJ DE BRANDING</h2>
+       <p>Op zoek naar een toffe en uitdagende baan op het strand? Bij ons kun je fulltime of parttime 
+        jaarrond aan de slag. Wij bieden veel doorgroeimogelijkheden, zowel in de bediening als in de keuken. 
+        Naast werk is er bij ons ook veel ruimte voor activiteiten met het team zoals surfen, boksles en andere diverse workshops. 
+        Hierdoor groei je als team maar zeker ook als persoon. Ervaring is geen pré, wat wij vooral belangrijk vinden is dat je in het team past.</p>
+        <p>Ben je enthousiast geworden van dit verhaal? Vul dan onderstaand formulier in en we nemen zo snel mogelijk contact met jou op!</p>
+
+        <!-- formulier -->
+        <form action="./index.html">
+
+            <!-- omlijsting om fomulier -->
+            <fieldset>
+
+            <!-- content in omlijsting -->
+            <legend>Functie</legend>
+
+            <!-- checkboxen over functie (span om ze een groep te geven om ze goed aan te spreken in css) -->
+                <span>
+                    <input type="checkbox" id="afwas" name="afwas" value="afwas">
+                    <label for="afwas"> Afwas</label>
+                </span>
+                    
+                <span>
+                    <input type="checkbox" id="bediening" name="bediening" value="bediening">
+                    <label for="bediening"> Bediening</label>
+                </span>
+
+                <span>
+                    <input type="checkbox" id="keuken" name="keuken" value="keuken">
+                    <label for="keuken"> Keuken </label>
+                </span>
+
+                <span>
+                    <input type="checkbox" id="strandbedjes" name="strandbedjes" value="strandbedjes">
+                    <label for="strandbedjes"> Strandbedjes</label>
+                </span>
+
+                <span>
+                    <input type="checkbox" id="eventmedewerker" name="event medewerker" value="eventmedewerker">
+                    <label for="eventmedewerker"> Event Medewerker </label>
+                </span>     
+            </fieldset>
+            
+            <fieldset> 
+            <legend> Persoonlijke informatie</legend>
+            <!-- formulier om je gegevens op te schrijven 
+                (text is zelf invullen)
+                (date is zelf datum met kalender)
+                (email is dat die je helpt dat je email niet dat je @ vergeet etc.)
+                (tel is dat als op je telefoon zit dat gelijk een cijfertoetsenbord ziet)
+                (week is dat je dan een kalender ziet en kan kiezen vanaf welke week je beschikbaar bent)-->
+                
+                <div>
+                    <label for="naam">Naam</label>
+                    <input type="text" id="naam" name="naam" placeholder="Naam" required>
+
+                    <label for="leeftijd">Geboortedatum</label>
+                    <input type="date" id="leeftijd" name="leeftijd" required>
+
+                    <label for="woonplaats">Woonplaats</label>
+                    <input type="text" id="woonplaats" name="woonplaats" placeholder="Woonplaats" required>
+                      
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Email" required>
+                      
+                    <label for="telefoonnr">Telefoonnummer</label>
+                    <input type="tel" id="telefoonnr" name="telefoonnr" placeholder="Telefoonnummer" required>
+                      
+                    <label for="beschikbaarheid">Per wanneer ben je beschikbaar?</label>
+                    <input type="week" id="beschikbaarheid" name="beschikbaar" required>
+                      
+                    <label for="hoeveel-dagen-per-week-wil-je-werken">Hoeveel dagen per week wil je werken?</label>
+                    <input type="text" id="hoeveel-dagen-per-week-wil-je-werken" name="werkdagen" placeholder="Aantal dagen" required>
+                      
+                    <label for="ken-je-iemand-die-bij-ons-werkt">Ken je iemand die bij ons werkt?</label>
+                    <input type="text" id="ken-je-iemand-die-bij-ons-werkt" name="kenning" placeholder="Naam" required>
+                </div>
+            </fieldset>
+            
+            <fieldset>
+            <legend>Ben je weleens bij ons geweest?</legend>
+
+                <!-- 1 keuze die je moet maken, ja of nee -->
+                <span>
+                    <input type="radio" id="ja" name="geweest" value="ja">
+                    <label for="ja">Ja</label>
+                </span>
+
+                <span>
+                    <input type="radio" id="nee" name="geweest" value="Nee">
+                    <label for="nee">Nee</label>
+                </span>
+        
+                        <p>Upload hier je laatste vakantie selfie</p>
+        
+                        <input type="file" id="myFile" name="filename">
+            </fieldset>
+            
+                <!-- verzend knop -->
+
+                <div>
+                    <input type="submit" id="versturen" value="➤  |  Klik hier om te versturen">
+                </div>
+            </form>
+    </main>
+
+    <footer>
+         <!-- Footer met instgram logo die leid naar inst pagina
+                 Logo van de branding 
+                 Info-->
+        <section>
+            <h2><a href="https://instagram.com/brandingbeachclub?igshid=MzRlODBiNWFlZA=="><img src="./images/instalogo.png" alt="instagram"></a></h2>
+            <h2><img src="./images/brandinglogo.svg" alt="branding logo"></h2>
+            <h3>PACOCIAO | PRIVACY</h3>
+            <h3>© 2023 BRANDINGBEACH.NL</h3>
+        </section>
+    </footer>    
+
+    <script src="./script/javascript.js"></script>
+
+    
+</body>
+</html>

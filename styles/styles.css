@@ -1,0 +1,355 @@
+/* lettertype die ik wil gebruiken */
+
+@font-face {
+    font-family: "AveriaSerif-Light";
+    src: url("https://db.onlinewebfonts.com/t/f104f2c9908b2ee6bf57e22e02f176ba.eot");
+    src: url("https://db.onlinewebfonts.com/t/f104f2c9908b2ee6bf57e22e02f176ba.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/f104f2c9908b2ee6bf57e22e02f176ba.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/f104f2c9908b2ee6bf57e22e02f176ba.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/f104f2c9908b2ee6bf57e22e02f176ba.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/f104f2c9908b2ee6bf57e22e02f176ba.svg#AveriaSerif-Light")format("svg");
+}
+
+/* root staat ook wel voor html. word gebruikt om kleuren, lettertypen en andere stijlinstellingen te beheren. dit kleuren schema
+is te zien als je je beelscherm op licht mode hebt staan. */
+
+:root {
+    --background-color: #EEEDE7;
+    --tekstcolor: #59391d;
+    --kopjescolor:black; 
+    --tekstvlakcolor:black;
+}
+
+/* mediaquery om de waarden aan te passen op basis van het door de gebruiker gekozen kleurenschema 
+(licht of donker) in hun besturingssysteem of browserinstellingen. in dit geval staat dit in contatc met de root en zal
+als je je scherm op dark hebt staan de dingen die in de root staat omgeschakeld worden naar de kleuren die hier onder staan, door
+dezelfde namen te geven maar een andere kleur weet het systeem wat je wilt verranderen. */
+
+@media(prefers-color-scheme:dark){
+    :root{
+        --background-color: #59391d;
+        --tekstcolor: white;
+        --kopjescolor:black; 
+        --tekstvlakcolor:#EEEDE7;  
+    }
+}
+
+/* body/header hier word alles aangegeven wat er in de body en heaeder word weergegeven en wat er word
+box sizing houd eigenlijk in dat de inhoud zich houd aan de maat en niet groter word. */
+
+body {
+    margin: 0em;
+    padding: 0em;
+    box-sizing: border-box;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--background-color);
+    font-family: AveriaSerif-Light;
+    max-width: 25em;
+}
+
+/* position relative word gebruikt als basispositioneringsoptie Het is handig wanneer je elementen wilt verplaatsen 
+binnen hun natuurlijke stroom zonder de lay-out van omliggende elementen te verstoren.*/
+header {
+    background-color: var(--background-color);
+    position: relative;
+}
+
+/* hamburgermenu */
+
+/*position absolute is het nauwkeurig positioneren van elementen binnen een complexe lay-out dus netals hier met 
+het menu. display none is er om het menu in en uit te klappen, dat dat menu dus kan verwijdenen*/
+
+header ul {
+    position: absolute;
+    border: .1em;
+    border-color: var(--tekstcolor);
+    border-style: solid;
+    top: 17%;
+    padding: .3em;
+    list-style: none;
+    display: none;
+}
+
+header li {
+    padding: .5em;
+}
+
+/* om dus het menu ook echt daadwerklijk open te maken en het menu uit klapt staat in connectie met javascript */
+header ul.menuopen {
+    display: block;
+
+}
+
+header button img {
+    width: 2em;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+}
+
+/* navigatie over de taal. NL/ENG/DE */
+
+header nav {
+    display: flex;
+    padding: 16px;
+    justify-content: space-between;
+    margin: .5em;
+}
+
+nav div:first-of-type img {
+    scale: 100%;
+
+}
+
+/* als je er met je muis overheen gaat dat er een kleur te zien is */
+div a:hover {
+    background-color: #9A805B;
+}
+
+/* de navigatie kleur, lijn weg en punten weg en zwarte kleur */
+a {
+    text-decoration: none;
+    color: var(--tekstvlakcolor);
+    font-size: small;
+}
+
+/* main afbeeldingen worden geschaald naar het formaat en word in het midden gezet
+reden van display block is, omdat afbeelding standaard op block inline staat, dus in
+dit geval inline met de navigatie dus nu haal je m door de block uit de inline en word 
+op zichzelf neer gezet */
+
+img {
+    max-width: 100%;
+    text-align: center;
+    margin: auto;
+    display: block;
+  
+}
+
+/* de navigatie word hier ook weer veranderd, dus lijntje etc word weg gehaald. 
+en vervolgens word alles onder elkaar gezet */
+
+main li {
+    list-style-type: none;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main a {
+    text-decoration: none;
+    color: white;
+    font-size: medium;
+
+}
+
+/* main Nav krijgt een kleur, maar dan gaat het op dit moment om de borden en padding
+dat dat een kleur krijgt */
+
+main ul li {
+    border: 0.1em solid #9A805B;
+    background-color: #9A805B;
+    padding: 1em;
+    margin: 0.5em;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* main nav word aangepast, in dit gaval word er padding aan toegevoegd. Maar word er 0
+ingevoerd zodat het aan de zijkant blijft */
+
+ul {
+    padding: 0;
+}
+
+/* JOBS */
+
+/* afbeelding, grid */
+
+main > div:first-of-type {
+    background-color: #9A805B;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* grid dat in een comlom gezet word. repeat auto fix automatisch herhaald auto-fit zorgt ervoor dat het grid zich aanpast aan de beschikbare ruimte, en het zal proberen om zoveel mogelijk kolommen van minimaal 100 pixels breed te maken. */
+    padding: 0.3em;
+    animation-name: rondje; /* animatie die je een naam geeft */
+    animation-duration: 3s; /* duurt 3 seconde tot die 360 grade gedraaid is */
+}
+
+/* Keyframes worden gebruikt om te specificeren hoe een element er op verschillende momenten van een animatie uit moet zien.
+rondje staat in connenectie met de code hierboven " animation-name: rondje , animation-duration: 3s; " */
+@keyframes rondje {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* kop tekst en de tekst eronder */
+h2, p {
+    text-align: center;
+    color: var(--tekstcolor);
+}
+
+h2 {
+    color: var(--tekstvlakcolor); 
+}
+
+main {
+    margin: .5em;
+}
+
+/* formulier */
+
+p:nth-of-type(3)
+p:nth-of-type(4)
+p:nth-of-type(5) {
+    text-align: left;
+}
+
+label, input {
+    margin-top: .5em;
+    color: var(--tekstcolor);
+    
+}
+
+div label {
+    display: block;
+}
+
+div input {
+    width: 23em;
+    border-radius: 0.9em;
+    padding: 0.5em;
+}
+
+/* zodat de functies ipv naast elkaar onder elkaar komen te staan */
+form input {
+    display: flex;
+}
+
+span {
+    display: flex;
+    flex-direction: row;
+    padding: .1em;
+}
+
+form {
+    margin-bottom: 1.5em;
+}
+
+fieldset p {
+    display: flex;
+    justify-content: left;
+    margin-bottom: 10px;
+    color: var(--tekstcolor);
+}
+
+fieldset label{
+    color: var(--tekstcolor);
+}
+
+legend{
+    color: var(--tekstcolor);
+}
+
+/* outline van het input veld dat het zwart word */
+
+div input {
+    transform: scale(1.01, 1.01); /* klein beetje vergroten het inputveld dus nu word het 1% groter. verticaal en  */
+    outline: none; /* geen omlijsting van computer zelf */
+    border: 1px solid black;
+    color:gray;
+}
+
+/* input veld word groen als je er wat invult*/
+
+div input:valid { 
+    border: 1px solid green; 
+}
+
+/* als je bezig bent, dan verschijnt er een grijze rand om t input veld  */
+
+div input:focus {
+    transform: scale(1.01, 1.01); /* heeft te maken met het schalen van het input veld nu word het 1% groter */
+    outline:none;
+    box-shadow:0 0 0 3px rgba(0,0,0,.25)
+}
+
+  
+/* formulier groene button */
+
+main div input:nth-child(1){
+    background-color: #5CB85C;
+    border: #5CB85C;
+    text-align: left;
+    margin-top: 2em;
+    margin-bottom: .8em;
+    padding: 1em;
+    width: 16em;
+    border-radius: .7em;
+    color: white;
+    font-size: medium;
+    
+}
+
+/* groene button kan je over hoveren */
+
+main div input:nth-child(1):hover {
+    animation-name: button;
+    animation-duration: .5s;  /* duur van de annimatie */
+    animation-fill-mode: forwards; /* als de animatie klaar is, dan blijft de button naar voren dus xzijn positie houden */
+    background-color: green;
+    transform-origin: 0%; /*  0% vanaf de linkerkant van het element. dus button neem 0% van de zijkant als die gaat annimeren  */
+}
+
+/* hiermee stuur je de animatie mee aan de "button" in dit geval button is dam 100% en behoud zijn groote als die 
+button in werking gaat en word 1.2 keer groter */
+
+@keyframes button{
+    100% {
+        scale: 1.2;
+    }
+}
+
+/* footer. Home & Jobs */
+
+footer {
+    background-color: #9A805B;
+    display: flex;
+    justify-content: center;
+
+    background-image: url('../images/driehoek.png'); /* achtergrond van de footer krijgt een afbeelding */
+    background-repeat: repeat-x; /* zonder deze code had de hele footer driehoekjes, door alleen de x as aan te spreken krijgt maar een lijn driehoekjes */
+    letter-spacing: .1em;
+}
+
+footer h2, footer h3 {
+    text-align: center;
+    color: white;
+}
+
+footer h3 {
+    font-size: medium;
+    margin: .5em;
+}
+
+footer img {
+    text-align: center;
+    display: block;
+    width: 2em;
+    height: auto;
+}
+
+footer h2:nth-of-type(2) img {
+    text-align: center;
+    display: block;
+    width: 10em;
+    height: auto;
+}
